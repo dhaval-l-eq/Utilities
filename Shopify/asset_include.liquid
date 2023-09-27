@@ -1,0 +1,27 @@
+Shopify asset includes
+
+for image: 
+
+{{'file_name.jpg' | file_img_url : 'master'}}
+or {{'file_name.jpg' | file_img_url : '300x'}}
+or {{'file_name.jpg' | file_img_url : '300x300'}}
+
+
+
+for css: 
+
+method-1: 
+<style>
+    @import "{{ 'gk-floating-img-ld.css' | asset_url }}";
+</style>
+
+method-2:
+    {{ 'cw-faq.css' | asset_url | stylesheet_tag }}
+
+
+
+
+for js: 
+
+method-1:
+{{ 'filename.js' | asset_url | script_tag }}

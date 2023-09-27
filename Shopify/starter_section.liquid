@@ -1,0 +1,21 @@
+<style>
+    @import "{{ 'section.css' | asset_url }}";
+</style>
+
+<section class="section">
+   <h1>Hello World!</h1>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Section Name",
+    "settings": [],
+    "presets": [
+    {
+      "name": "Section Name",
+      "settings": {}
+    }
+  ]
+  }
+{% endschema %}

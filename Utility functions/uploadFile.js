@@ -7,5 +7,14 @@ function importFileUploadHandler(e) {
 
       if (e.target.files && inputFile && uploadExtension === 'jpg') {
          console.log(inputFile);
+
+         
+         //for image do as follows:
+         const newImage = new Image();
+         newImage.src = URL.createObjectURL(inputFile);
+
+         newImage.onload = (e) => {
+            // do something
+         }
       }
 }
