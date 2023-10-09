@@ -12,11 +12,11 @@ for css:
 
 method-1: 
 <style>
-    @import "{{ 'gk-floating-img-ld.css' | asset_url }}";
+    @import "{{ 'file_name.css' | asset_url }}";
 </style>
 
 method-2:
-    {{ 'cw-faq.css' | asset_url | stylesheet_tag }}
+    {{ 'file_name.css' | asset_url | stylesheet_tag }}
 
 
 
@@ -25,3 +25,10 @@ for js:
 
 method-1:
 {{ 'filename.js' | asset_url | script_tag }}
+
+
+
+
+render snippet:
+
+{% render 'file_name' %}
