@@ -1,0 +1,89 @@
+/* *************** GLOBAL VARIABLES START ********************** */
+:root {
+   /* colors */
+   --color-theme-1: #69d4cc;
+   --color-theme-2: #73e6ac;
+   --color-theme-3: #0a2035;
+   --color-theme-3-faded: #0a2035a6;
+   --color-bg-1: #f6f6f6;
+   --color-bg-2: #1e1e1e;
+   --color-bg-3: #111d2f;
+   --color-bg-4: #070a0f;
+   --color-text-dark-1: #0a2035;
+   --color-text-dark-2: #565656;
+   --color-text-dark-3: #202020;
+   --color-text-dark-4: #505050;
+   --color-text-light-1: #fff;
+   --color-text-light-2: rgb(212, 101, 101);
+
+   /* fonts */
+   --font-dm-sans: 'DM Sans', sans-serif;
+   --font-theme-1: 'Museo Sans', sans-serif;
+   --font-theme-2: Calibri, sans-serif;
+
+   /* gradiants */
+   --gradiant-theme-1: linear-gradient(270deg, #73e6ac 0%, #69d4cc 100%);
+   --gradiant-theme-2: linear-gradient(270deg, #0f192c 0%, #1a253a 100%);
+}
+/* *************** GLOBAL VARIABLES END ********************** */
+
+/* *************** CSS RESET START ********************** */
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.cvl-box {
+   margin: 100px auto;
+   max-width: 1000px;
+}
+
+.cvl-list {
+   display: flex;
+   flex-direction: column;
+   gap: 25px;
+}
+
+.cvl-item,
+.cvl-valueBox,
+.cvl-variableWrapper {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+}
+
+.cvl-item {
+   display: grid;
+   grid-template-columns: 40% 60%;
+}
+
+.cvl-color {
+   width: 25px;
+   height: 25px;
+   border-radius: 8px;
+   background-color: #f6f6f6;
+   flex-shrink: 0;
+}
+
+.cvl-variable {
+   font-size: 25px;
+   font-weight: 500;
+}
+
+.cvl-value {
+   font-size: 20px;
+   font-weight: 500;
+}
+
+.cvl-btnCopy {
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+}
