@@ -2,7 +2,8 @@
 
 // this file will print all css variables used in your project in an empty page.
 
-const rootVariables = {};
+let rootVariables = {};
+const listEl = document.querySelector('.cvl-list');
 
 function isColor(strColor) {
    const str = new Option().style;
@@ -29,26 +30,25 @@ function getCSSVariablesList() {
       return isRoot;
    });
 
-   const rootStyleArr = [];
+   let rootStyleArr = [];
    rootStyleSheets.forEach(sheet => {
       rootStyleArr.push(Array.from(sheet.cssRules).filter(rule => rule.selectorText == ':root'));
    });
 
-   const rootVarsArr = Array.from(rootStyleArr.flat()[0].style);
-   rootVarsArr.forEach(rootVar => {
-      const rootStyles = window.getComputedStyle(document.documentElement);
-      rootVariables[rootVar] = rootStyles.getPropertyValue(rootVar);
-   });
+   rootStyleArr = rootStyleArr.flat();
 
-   console.log(rootVariables);
-   printVariables();
+   rootStyleArr.forEach(rootStyle => {
+      const rootVarsArr = Array.from(rootStyle.style);
+      rootVarsArr.forEach(rootVar => {
+         const rootStyles = window.getComputedStyle(document.documentElement);
+         rootVariables[rootVar] = rootStyles.getPropertyValue(rootVar);
+      });
+   });
 }
 
 function printVariables() {
-   const listEl = document.querySelector('.cvl-list');
    listEl.innerHTML = '';
    Object.entries(rootVariables).forEach(([key, value]) => {
-
       const isValueColor = isColor(value);
 
       const html = `
@@ -70,4 +70,46 @@ function printVariables() {
    });
 }
 
-getCSSVariablesList();
+function copyVariable() {
+   listEl.addEventListener('click', function (e) {
+      const targetEl = e.target;
+      const btnEl = targetEl.closest('.cvl-btnCopy');
+      const itemEl = targetEl.closest('.cvl-item');
+      // target copy button
+      if (btnEl) {
+         const wrapper = targetEl.closest('.cvl-variableWrapper');
+         const variable = wrapper.querySelector('.cvl-variable').textContent;
+         copyStringHelper(variable, giveFeedback);
+      } else if (targetEl.classList.contains('cvl-variable')) {
+         const variable = targetEl.textContent;
+         copyStringHelper(variable, giveFeedback);
+      }
+
+      function giveFeedback() {
+         itemEl.classList.add('cvl-item--copied');
+         setTimeout(() => itemEl.classList.remove('cvl-item--copied'), 1000);
+      }
+   });
+
+   function copyStringHelper(str, feedback) {
+      navigator.clipboard.writeText(str).then(feedback, function (err) {
+         console.log('Could not copy text: ', err);
+      });
+   }
+}
+
+function init() {
+   getCSSVariablesList();
+   printVariables();
+   copyVariable();
+}
+
+function refreshList() {
+   rootVariables = {};
+   getCSSVariablesList();
+   printVariables();
+}
+
+init();
+
+document.querySelector('.cvl-btnRefresh').addEventListener('click', refreshList);
