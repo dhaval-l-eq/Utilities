@@ -11,3 +11,7 @@ Understand useEffect properly: https://youtu.be/QQYeipc_cik
 Codux: https://www.smashingmagazine.com/2023/06/codux-react-visual-editor-improves-developer-experience/
 
 Generate shapes: https://www.shapedivider.app/
+
+Resize & crop gifs: https://ezgif.com/resize
+
+Buttons gallery: https://www.buttons.cool/

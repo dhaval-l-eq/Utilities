@@ -1,6 +1,4 @@
-<style>
-    @import "{{ 'section.css' | asset_url }}";
-</style>
+{{ 'file_name.css' | asset_url | stylesheet_tag }}
 
 <section class="section">
    <h1>Hello World!</h1>
