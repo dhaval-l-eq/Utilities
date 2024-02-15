@@ -15,3 +15,5 @@ Generate shapes: https://www.shapedivider.app/
 Resize & crop gifs: https://ezgif.com/resize
 
 Buttons gallery: https://www.buttons.cool/
+
+Beautiful React Hooks: https://github.com/antonioru/beautiful-react-hooks?tab=readme-ov-file
